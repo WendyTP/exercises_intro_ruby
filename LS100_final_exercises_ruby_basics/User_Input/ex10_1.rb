@@ -1,0 +1,33 @@
+# exercise 10_1
+
+def valid_number?(number_string)
+  number_string.to_i.to_s == number_string && number_string.to_i != 0
+end
+
+def read_number
+  loop do
+    puts "Please give a postive or negative integer."
+    number = gets.chomp
+    return number.to_i if valid_number?(number)
+    puts "Invalid input. Only non-zero integers are allowed"
+  end
+end 
+
+
+first_number = nil
+second_number = nil
+
+
+loop do
+
+  first_number = read_number
+  second_number = read_number
+  break if first_number.to_i * second_number.to_i <  0
+  puts "Sorry. One integer must be positive, and the other must be negative."
+  puts "Please start over."
+
+end
+
+result = first_number.to_i + second_number.to_i
+
+puts "#{first_number} + #{second_number} = #{result}"
